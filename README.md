@@ -51,5 +51,6 @@ This project is licensed under the MIT License — see the `LICENSE` file for de
 
 ## 📫 Contact
 
-For questions or contributions, please open an issue or contact me at https://koopatroopa64@github.com.
+For questions or contributions, please [open an issue](https://github.com/koopatroopa64/snort-custom-rules/issues) or visit [my GitHub profile](https://github.com/koopatroopa64).
+
 
