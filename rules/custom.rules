@@ -1,0 +1,41 @@
+# Detect ICMP ping
+alert icmp any any -> any any (msg:"ICMP Ping detected"; sid:1000001; rev:1;)
+
+# Detect Nmap TCP SYN scan
+alert tcp any any -> any any (flags:S; msg:"Nmap TCP SYN scan detected"; sid:1000002; rev:1;)
+
+# Detect SSH brute force attempt (multiple connections to port 22)
+alert tcp any any -> any 22 (msg:"Possible SSH brute-force"; flags:S; detection_filter:track by_src, count 5, seconds 60; sid:1000003; rev:2;)
+
+# Detect FTP login attempt
+alert tcp any any -> any 21 (msg:"FTP login attempt detected"; content:"USER "; nocase; sid:1000004; rev:1;)
+
+# Detect HTTP GET request
+alert tcp any any -> any 80 (msg:"HTTP GET Request Detected"; content:"GET /"; sid:1000005; rev:2;)
+
+# Detect access to suspicious .exe file over HTTP
+alert tcp any any -> any 80 (msg:"Suspicious EXE file download"; content:".exe"; sid:1000006; rev:3;)
+
+# Detect SQL Injection attempt
+alert tcp any any -> any 80 (msg:"SQL Injection Attempt Detected"; content:"or+1=1"; nocase; sid:1000007; rev:2;)
+
+# Detect Remote Desktop Protocol (RDP) connection
+alert tcp any any -> any 3389 (msg:"RDP Connection Attempt"; flags:S; sid:1000008; rev:1;)
+
+# Detect Telnet usage
+alert tcp any any -> any 23 (msg:"Telnet Connection Attempt"; flags:S; sid:1000009; rev:1;)
+
+# Detect use of Powershell in HTTP traffic (common in malware)
+alert tcp any any -> any 80 (msg:"Powershell Command in HTTP"; content:"powershell"; sid:1000010; rev:2;)
+
+# Detect potential shellcode in payload (NOP sled)
+alert ip any any -> any any (msg:"Possible Shellcode NOP Sled"; content:"|90 90 90 90 90|"; sid:1000011; rev:1;)
+
+# Detect access to admin.php (potential brute force or admin panel access)
+alert tcp any any -> any 80 (msg:"Access to admin.php"; content:"admin.php"; http_uri; sid:1000012; rev:1;)
+
+# Detect possible malware C2 communication (beaconing pattern)
+alert tcp any any -> any any (msg:"Possible C2 beaconing"; content:"keep-alive"; sid:1000013; rev:1;)
+
+# Detect outbound IRC traffic (common in bots)
+alert tcp any any -> any 6667 (msg:"IRC Traffic Detected - Possible Bot"; sid:1000014; rev:1;)

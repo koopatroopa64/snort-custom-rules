@@ -1,16 +1,10 @@
-
----
-
-### `scripts/run_snort.sh`
-
-```bash
 #!/bin/bash
 
-# Interface or a pcap
-INTERFACE="eth0"
+PCAP="/home/kali/snort-custom-rules/pcaps/icmp_test.pcap"
+LOG_DIR="/home/kali/snort-custom-rules/logs"
+CONF="/home/kali/snort-custom-rules/snort.conf" 
 
-RULES_FILE="./rules/custom.rules"
-LOG_DIR="./logs/"
+mkdir -p "$LOG_DIR"
+chmod 777 "$LOG_DIR"
 
-echo "[*] Running Snort with custom rules..."
-sudo snort -A console -q -c /etc/snort/snort.conf -i $INTERFACE -l $LOG_DIR -K ascii -r ./pcaps/test.pcap -s -y -k none -S RULE_PATH=$RULES_FILE
+sudo snort -c "$CONF" -r "$PCAP" -l "$LOG_DIR" -A fast

@@ -6,21 +6,36 @@ This repository contains a collection of custom Snort IDS rules designed to dete
 
 ## 📦 Project Structure
 
-- `rules/custom.rules`: All custom detection rules.
-- `rules/test_cases.md`: Describes each rule and how it works.
-- `pcaps/`: Packet captures for testing.
-- `logs/alert_output.log`: Snort detection logs.
-- `scripts/run_snort.sh`: Bash script to run Snort with the custom rules.
-- `screenshots/`: Visual proof of alerts/detections.
-- `report.md`: Summary report of detections and lessons learned.
+- `rules/` — Contains:
+  - `custom.rules`: All custom detection rules.
+- `test_cases/` — Markdown files for each tested rule with accurate steps.
+- `scripts/` — Contains helper scripts, e.g., `run_snort.sh` to launch Snort easily.
+- `logs/` — Snort output logs.
+  - `archived_alerts/`: Backup of older alerts for reference.
+- `pcaps/` — Packet capture files for replay and testing.
+- `screenshots/` — Visual evidence of alerts triggered by each rule.
+- `snort.conf` — Custom Snort configuration file.
+- `report.md` — High-level summary of rules, coverage, and key learnings.
+- `README.md` — This file.
+- `LICENSE` — MIT License file.
 
 ---
 
 ## 🚀 How to Run
 
-Run the detection script with:
+### 🔹 Option 1: Run via script
 
-    sudo bash scripts/run_snort.sh
+```bash
+sudo bash scripts/run_snort.sh
+```
+
+### 🔹 Option 2: Run manually with Snort
+
+```bash
+sudo snort -c /home/kali/snort-custom-rules/snort.conf -i lo -l /home/kali/snort-custom-rules/logs -A fast
+```
+
+> Replace `-i lo` with your desired interface (e.g., `eth0`) depending on the test scenario.
 
 > Make sure Snort is installed and configured properly before running.
 
@@ -30,16 +45,17 @@ Run the detection script with:
 
 - Kali Linux (or compatible Linux distro)
 - Snort installed (version X.Y.Z)
-- Required permissions to run Snort with network interfaces and read PCAPs
+- Permissions to capture traffic and write to logs
 
 ---
 
 ## 📖 Additional Information
 
-- To add new rules, edit `rules/custom.rules` and update `rules/test_cases.md` accordingly.
-- Use the PCAP files in `pcaps/` to test detection accuracy.
-- Logs and alerts will be saved to `logs/alert_output.log`.
-- Screenshots demonstrate sample detection outputs for reference.
+- Add new rules in `rules/custom.rules`
+- Write test procedures in `test_cases/` using the same markdown template
+- Store detection screenshots in `screenshots/`
+- View previous alerts in `logs/archived_alerts/`
+- Use PCAPs in `pcaps/` to simulate traffic
 
 ---
 
@@ -52,5 +68,3 @@ This project is licensed under the MIT License — see the `LICENSE` file for de
 ## 📫 Contact
 
 For questions or contributions, please [open an issue](https://github.com/koopatroopa64/snort-custom-rules/issues) or visit [my GitHub profile](https://github.com/koopatroopa64).
-
-
