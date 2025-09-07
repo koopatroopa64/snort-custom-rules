@@ -44,7 +44,7 @@ sudo snort -c /home/kali/snort-custom-rules/snort.conf -i lo -l /home/kali/snort
 ## 🛠 Prerequisites
 
 - Kali Linux (or compatible Linux distro)
-- Snort installed (version X.Y.Z)
+- Snort installed
 - Permissions to capture traffic and write to logs
 
 ---
