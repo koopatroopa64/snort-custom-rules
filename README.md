@@ -4,7 +4,7 @@ This repository contains a collection of custom Snort IDS rules designed to dete
 
 ---
 
-## 📦 Project Structure
+## Project Structure
 
 - `rules/` — Contains:
   - `custom.rules`: All custom detection rules.
@@ -21,7 +21,7 @@ This repository contains a collection of custom Snort IDS rules designed to dete
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 ### 🔹 Option 1: Run via script
 
@@ -41,7 +41,7 @@ sudo snort -c /home/kali/snort-custom-rules/snort.conf -i lo -l /home/kali/snort
 
 ---
 
-## 🛠 Prerequisites
+## Prerequisites
 
 - Kali Linux (or compatible Linux distro)
 - Snort installed
@@ -49,7 +49,7 @@ sudo snort -c /home/kali/snort-custom-rules/snort.conf -i lo -l /home/kali/snort
 
 ---
 
-## 📖 Additional Information
+## Additional Information
 
 - Add new rules in `rules/custom.rules`
 - Write test procedures in `test_cases/` using the same markdown template
@@ -59,12 +59,12 @@ sudo snort -c /home/kali/snort-custom-rules/snort.conf -i lo -l /home/kali/snort
 
 ---
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License — see the `LICENSE` file for details.
 
 ---
 
-## 📫 Contact
+## Contact
 
-For questions or contributions, please [open an issue](https://github.com/koopatroopa64/snort-custom-rules/issues) or visit [my GitHub profile](https://github.com/koopatroopa64).
+For questions or contributions, please [open an issue](https://github.com/Singidunum64/snort-custom-rules/issues) or visit [my GitHub profile](https://github.com/Singidunum64).
